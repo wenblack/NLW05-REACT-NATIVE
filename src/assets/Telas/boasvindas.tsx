@@ -6,13 +6,14 @@ import {
     StyleSheet,
     Image,
     TouchableOpacity,
-    Dimensions
+    Dimensions,
+    View
 }
     from 'react-native';
 import wateringImg from '../../../src/assets/watering.png';
 import colors from '../../../styles/colors';
 import { Feather } from '@expo/vector-icons';
-
+import fonts from '../../../styles/fonts';
 
 /*Exemplo de uso de duas interfaces em um mesmo componente:
 ***************************************************************************
@@ -35,34 +36,35 @@ export function Welcome() {
     return (
 
         <SafeAreaView style={style.container}>
+            <View style={style.toqueFinal}>
 
-            <Text style={style.titulo}>
-                Gerencie{'\n'}
-                suas plantas {'\n'}
-                de forma fácil</Text>
 
-            <Image
-                source={wateringImg}
-                style={style.imagem}
-                resizeMode='contain'
-            >
-            </Image>
-            <Text style={style.subtitulo}>
-                Não esqueça mais de regar suas plantas.
-                Nós cuidamos de lembrar você
-                sempre que precisar.</Text>
-            <TouchableOpacity style={style.botao}
-                activeOpacity={0.7}
-            >
-                <Text style={style.textoBotao}>
+                <Text style={style.titulo}>
+                    Gerencie{'\n'}
+                    suas plantas de {'\n'}
+                    forma fácil</Text>
+
+                <Image
+                    source={wateringImg}
+                    style={style.imagem}
+                    resizeMode='contain'
+                >
+                </Image>
+                <Text style={style.subtitulo}>
+                    Não esqueça mais de regar suas plantas.
+                    Nós cuidamos de lembrar você
+                    sempre que precisar.</Text>
+                <TouchableOpacity style={style.botao}
+                    activeOpacity={0.7}
+                >
                     <Feather
                         name='chevron-right'
                         style={style.icone}
                     ></Feather>
-                </Text>
-            </TouchableOpacity>
 
+                </TouchableOpacity>
 
+            </View>
 
         </SafeAreaView>
     );
@@ -71,27 +73,37 @@ export function Welcome() {
 const style = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'space-evenly',
-        alignItems: 'center'
+
     },
+
+    toqueFinal: {
+        flex: 1,
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        paddingHorizontal: 20
+    },
+
     titulo: {
-        fontSize: 32,
+        fontSize: 28,
         fontWeight: 'bold',
         textAlign: 'center',
         color: colors.heading,
-        marginTop: 38
+        marginTop: 38,
+        fontFamily: fonts.heading,
+        lineHeight: 34
 
     },
     subtitulo: {
         fontSize: 18,
         textAlign: 'center',
         paddingHorizontal: 20,
-        color: colors.heading
+        color: colors.heading,
+        fontFamily: fonts.text
     },
 
     imagem: {
-        height: 284,
-        width: 292
+        height: 264,
+        width: 272
     },
     botao: {
         backgroundColor: colors.green,
@@ -101,12 +113,6 @@ const style = StyleSheet.create({
         marginBottom: 10,
         height: 55,
         width: 55
-
-    },
-
-    textoBotao: {
-        color: colors.white,
-        fontSize: 25,
 
     },
     icone: {

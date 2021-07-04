@@ -8,7 +8,7 @@ import {
   Jost_600SemiBold,
 
 } from '@expo-google-fonts/jost';
-import { Welcome } from './src/assets/Telas/boasvindas';
+import { Usuario } from './src/assets/Telas/usuario';
 
 
 
@@ -26,7 +26,7 @@ export default function App() {
 
   return (
 
-    <Welcome />
+    <Usuario />
 
 
   );
