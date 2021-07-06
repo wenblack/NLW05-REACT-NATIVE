@@ -14,25 +14,19 @@ import wateringImg from '../../../src/assets/watering.png';
 import colors from '../../../styles/colors';
 import { Feather } from '@expo/vector-icons';
 import fonts from '../../../styles/fonts';
+import { useNavigation } from '@react-navigation/native';
 
-/*Exemplo de uso de duas interfaces em um mesmo componente:
-***************************************************************************
-interface ButtonProps extends TouchableOpacity {
-    title: string;
-}
-*******************************************************************************
-Implementando na funcção:
-export function Button({ title, ... rest }: ButtonProps) {
-    <Text>
-        {title}
-    </Text>
-*********************************************************************************************
-Usando componente
 
-<Button title={"Teste de interface" onPress={}}></Button>
-
-*/
 export function Welcome() {
+    const navegacao = useNavigation()
+    //Iniciando Rota
+    function inicioDaNavegacao() {
+        navegacao.navigate('Usuario');
+
+    }
+
+
+
     return (
 
         <SafeAreaView style={style.container}>
@@ -56,6 +50,7 @@ export function Welcome() {
                     sempre que precisar.</Text>
                 <TouchableOpacity style={style.botao}
                     activeOpacity={0.7}
+                    onPress={inicioDaNavegacao}
                 >
                     <Feather
                         name='chevron-right'
